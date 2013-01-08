@@ -1,6 +1,7 @@
 
 package edu.wpi.first.wpilibj.ultimateascent;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 
@@ -40,5 +41,23 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+    
+    // Constants.
+    private final int DRIVE_LEFT_AXIS = 2;
+    private final int DRIVE_RIGHT_AXIS = 4;
+    
+    // Joysticks.
+    private final Joystick driverPad = new Joystick(RobotMap.PAD_DRIVER);
+    
+    // Returns  value of the left joystick.
+    public double getDriveLeft() {
+        return driverPad.getRawAxis(DRIVE_LEFT_AXIS);
+    }
+    
+    // Returns the value of the right joystick.
+    public double getDriveRight() {
+        return driverPad.getRawAxis(DRIVE_RIGHT_AXIS);
+    }
+    
 }
 
