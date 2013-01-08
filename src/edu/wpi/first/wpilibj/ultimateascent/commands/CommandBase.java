@@ -3,7 +3,7 @@ package edu.wpi.first.wpilibj.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ultimateascent.OI;
-import edu.wpi.first.wpilibj.ultimateascent.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -15,7 +15,8 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+    
+    public static Shooter shooter = new Shooter();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -26,7 +27,7 @@ public abstract class CommandBase extends Command {
         oi = new OI();
 
         // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(exampleSubsystem);
+        SmartDashboard.putData(shooter);
     }
 
     public CommandBase(String name) {

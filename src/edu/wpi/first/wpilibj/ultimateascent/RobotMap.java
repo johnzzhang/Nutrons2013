@@ -16,4 +16,18 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static final int rangefinderPort = 1;
     // public static final int rangefinderModule = 1;
+    
+    // Input
+    public static final int OPERATOR_PAD = 0;
+    
+    // Output
+    public static final int SHOOTER_WHEEL = 5;
+    
+    
+    // Sensors
+    public static final int SHOOTER_ENCODER_1 = 1;
+    public static final int SHOOTER_ENCODER_2 = 2;
+    
+    
+    
 }
