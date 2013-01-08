@@ -1,6 +1,9 @@
 
 package edu.wpi.first.wpilibj.ultimateascent;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO;
+import edu.wpi.first.wpilibj.DriverStationEnhancedIO.EnhancedIOException;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
@@ -45,9 +48,24 @@ public class OI {
     // Constants.
     private final int DRIVE_LEFT_AXIS = 2;
     private final int DRIVE_RIGHT_AXIS = 4;
+    private final int DRIVE_THROTTLE_AXIS = 2;
+    private final int DRIVE_WHEEL_AXIS = 3;
+    
+    private DriverStationEnhancedIO io = DriverStation.getInstance().getEnhancedIO();
     
     // Joysticks.
     private final Joystick driverPad = new Joystick(RobotMap.PAD_DRIVER);
+    
+    private boolean getIODigital(int port) throws EnhancedIOException {
+        boolean in = false;
+        try {
+            in = !io.getDigital(port); //active low
+        }
+        catch(EnhancedIOException ex) {
+        }
+        return in;
+    }
+
     
     // Returns  value of the left joystick.
     public double getDriveLeft() {
@@ -59,5 +77,17 @@ public class OI {
         return driverPad.getRawAxis(DRIVE_RIGHT_AXIS);
     }
     
+    public double getDriveThrottle() {
+        return driverPad.getRawAxis(DRIVE_THROTTLE_AXIS);
+    }
+    
+    public double getDriveWheel() {
+        return driverPad.getRawAxis(DRIVE_WHEEL_AXIS);
+        
+    }
+    
+    public boolean getDriveQuickTurn() throws EnhancedIOException {
+        return getIODigital(3);
+    }
 }
 
