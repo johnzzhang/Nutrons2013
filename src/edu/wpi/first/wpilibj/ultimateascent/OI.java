@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DriverStationEnhancedIO.EnhancedIOException;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.lib.Utils;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -56,7 +57,31 @@ public class OI {
     // Joysticks.
     private final Joystick driverPad = new Joystick(RobotMap.PAD_DRIVER);
     
-    private boolean getIODigital(int port) throws EnhancedIOException {
+    private double capAndBand(double value) {
+        value = Utils.deadband(value, .075, -1);
+        value = Utils.deadband(value, .075, 0);
+        value = Utils.deadband(value, .075, 1);
+        return Utils.limit(value, -1, 1);
+    }
+    
+    private double scaleAnalog(double voltageIn) {
+        double normalized = (2 * voltageIn / 3.25) - 1;
+        return normalized;
+    }
+    
+    private double getIOAnalog(int port) {
+        double in;
+        try {
+            in = io.getAnalogIn(port);
+        }
+        catch(EnhancedIOException ex) {
+            return 0;
+        }
+        double refined = capAndBand(scaleAnalog(in));
+        return refined;
+    }
+    
+    private boolean getIODigital(int port) {
         boolean in = false;
         try {
             in = !io.getDigital(port); //active low
@@ -78,16 +103,16 @@ public class OI {
     }
     
     public double getDriveThrottle() {
-        return driverPad.getRawAxis(DRIVE_THROTTLE_AXIS);
+        return getIOAnalog(1);
     }
     
     public double getDriveWheel() {
-        return driverPad.getRawAxis(DRIVE_WHEEL_AXIS);
-        
+        return getIOAnalog(3);
     }
     
     public boolean getDriveQuickTurn() throws EnhancedIOException {
         return getIODigital(3);
     }
+    
 }
 
