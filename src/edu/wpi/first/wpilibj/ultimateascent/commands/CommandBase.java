@@ -16,7 +16,7 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
     
-    public static Shooter shooter = new Shooter();
+    public static Shooter shooter;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -25,6 +25,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
+        shooter = new Shooter();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(shooter);
@@ -36,5 +37,13 @@ public abstract class CommandBase extends Command {
 
     public CommandBase() {
         super();
+    }
+    
+    public static boolean isOperatorCamel() {
+        if(oi == null && shooter == null) {
+            return false;
+        }else{
+            return true;
+        }
     }
 }

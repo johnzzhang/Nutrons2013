@@ -20,6 +20,7 @@ public class RobotMap {
     // Input
     public static final int OPERATOR_PAD = 0;
     
+    
     // Output
     public static final int SHOOTER_WHEEL = 5;
     
