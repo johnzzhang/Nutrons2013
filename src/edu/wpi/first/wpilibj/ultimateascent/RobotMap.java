@@ -17,9 +17,10 @@ public class RobotMap {
     // public static final int rangefinderPort = 1;
     // public static final int rangefinderModule = 1;
     
-    // Change these values to correct channels.
+    // TODO: Change these values to correct channels.
     public static final int PAD_DRIVER = 0;
     public static final int DRIVE_LEFT_MOTOR = 0;
     public static final int DRIVE_RIGHT_MOTOR = 0;
+    public static final int SHIFTER = 0;
     
 }

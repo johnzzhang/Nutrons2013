@@ -9,11 +9,15 @@ import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
  * @author John
  */
 public class DriveTrain extends Subsystem {
+    
     // Variables
-    private int tSens = 1;
+    private double tSens = 1;
+    
     // Constants.
     private final double LEFT_SCALE = 1.0;
     private final double RIGHT_SCALE = 1.0;
+    private final double HIGH_GEAR_T_SENS = 1.5;
+    private final double LOW_GEAR_T_SENS = 1.3;
    
     // Robot parts.
     private final Victor lMotor = new Victor(RobotMap.DRIVE_LEFT_MOTOR);
@@ -23,6 +27,16 @@ public class DriveTrain extends Subsystem {
     }
     
     protected void initDefaultCommand() {
+    }
+    
+    // Set tSens to appropriate gear.
+    public void setTSens(boolean highGear) {
+        if(highGear) {
+            tSens = HIGH_GEAR_T_SENS;
+        }
+        else {
+            tSens = LOW_GEAR_T_SENS;
+        }
     }
     
     // Sets lMotor and rMotor to lPower and rPower.
@@ -39,14 +53,13 @@ public class DriveTrain extends Subsystem {
         double lPower;
         
         // start turning if quickturn button is pressed.
-        
         if(quickTurn) {
             overPower = 1.0;
             angularPower = wheel;
         }
         else {
             overPower = 0.0;
-            angularPower = Math.abs(throttle)*wheel*tSens;
+            angularPower = Math.abs(throttle) * wheel * tSens;
         }
         rPower = throttle;
         lPower = throttle;
@@ -64,7 +77,7 @@ public class DriveTrain extends Subsystem {
             rPower += overPower * (-1.0 - rPower);
             lPower = -1.0;
         }
-        else if (rPower < -1.0){
+        else if (rPower < -1.0) {
             lPower += overPower * (-1.0 - rPower);
             rPower = -1.0;
         }

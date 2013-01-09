@@ -7,7 +7,10 @@ import edu.wpi.first.wpilibj.DriverStationEnhancedIO.EnhancedIOException;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.lib.ReverseButton;
 import edu.wpi.first.wpilibj.lib.Utils;
+import edu.wpi.first.wpilibj.ultimateascent.commands.shifter.ShifterStaticCmd;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shifter;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -56,6 +59,11 @@ public class OI {
     
     // Joysticks.
     private final Joystick driverPad = new Joystick(RobotMap.PAD_DRIVER);
+    private Button shift = new ReverseButton(new DigitalIOButton(1));
+    
+    public OI() {
+        shift.whileHeld(new ShifterStaticCmd(!Shifter.DEFAULT));
+    }
     
     private double capAndBand(double value) {
         value = Utils.deadband(value, .075, -1);
