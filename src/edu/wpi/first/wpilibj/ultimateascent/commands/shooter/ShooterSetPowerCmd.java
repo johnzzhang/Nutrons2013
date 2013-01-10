@@ -7,23 +7,20 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 public class ShooterSetPowerCmd extends CommandBase {
 
     // Variables
-    private double power = 0;
+    private double shooterPower = 0;
     
     public ShooterSetPowerCmd(double newPower) {
         requires(shooter);
-        this.power = newPower;
+        this.shooterPower = newPower;
     }
 
     protected void initialize() {
+        shooter.disable();
+        shooter.setShooterEnabled(false);
     }
 
     protected void execute() {
-        shooter.setShooterPower(power);
-        if(power != 0) {
-            shooter.setShooterEnabled(true);
-        } else {
-            shooter.setShooterEnabled(false);
-        }
+        shooter.setShooterPower(shooterPower);
     }
 
     protected boolean isFinished() {

@@ -6,23 +6,25 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
  *
  * @author root
  */
-public class ShooterMaintainPowerCmd extends CommandBase {
+public class ShooterSetRateCmd extends CommandBase {
 
-    public ShooterMaintainPowerCmd() {
-        requires(shooter);
+    private double shooterRate;
+    
+    public ShooterSetRateCmd(double newRate) {
+        shooterRate = newRate;
     }
     
     protected void initialize() {
     }
 
     protected void execute() {
-        if(shooter.isShooterEnabled()) {
-            shooter.setShooterPower(shooter.getShooterPower());
-        }
+        shooter.enable();
+        shooter.setShooterEnabled(true);
+        shooter.setSetpoint(shooterRate);
     }
 
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {

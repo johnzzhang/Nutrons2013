@@ -9,17 +9,20 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 public class ShooterDeltaPowerCmd extends CommandBase{
 
     // Variables
-    private double deltaPower = 0;
+    private double deltaShooterPower = 0;
     
     public ShooterDeltaPowerCmd(double newDeltaPower) {
         requires(shooter);
-        this.deltaPower = newDeltaPower;
+        this.deltaShooterPower = newDeltaPower;
     }
     
     protected void initialize() {
+        shooter.disable();
+        shooter.setShooterEnabled(false);
     }
-
+    
     protected void execute() {
+        shooter.setShooterPower(shooter.getShooterPower() + deltaShooterPower);
     }
 
     protected boolean isFinished() {
