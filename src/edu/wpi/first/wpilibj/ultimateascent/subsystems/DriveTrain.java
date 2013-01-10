@@ -2,6 +2,7 @@ package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.lib.Print;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
 
 /**
@@ -41,6 +42,7 @@ public class DriveTrain extends Subsystem {
     
     // Sets lMotor and rMotor to lPower and rPower.
     public void driveLR(double lPower, double rPower) {
+        Print.print("We moving for real.");
         lMotor.set(LEFT_SCALE * lPower);
         rMotor.set(RIGHT_SCALE * rPower);
     }

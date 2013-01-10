@@ -2,6 +2,7 @@ package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.lib.Print;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 
@@ -19,6 +20,7 @@ public class Shifter extends Subsystem {
 
     // Set gear to high or low.
     public void shift(boolean highGear) {
+        Print.print("Dude, we just shifted. Like for real. Seriously.");
         CommandBase.dt.setTSens(highGear);
         shifter.set(highGear);
     }
