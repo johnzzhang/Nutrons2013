@@ -1,19 +1,19 @@
-package edu.wpi.first.wpilibj.ultimateascent.commands.intake;
+package edu.wpi.first.wpilibj.ultimateascent.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.lib.Print;
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 
 /**
  *
- * @author John
+ * @author NUTRONSPROS
  */
-public class IntakeFrisbee extends CommandBase {
+public class DTMoveToFrontOfPyramid extends CommandBase {
 
     protected void initialize() {
     }
 
     protected void execute() {
-        // We just intook that bitch.
-        intake.intake();
+        Print.printMessage("Bro we are moving to the front of the pyramid.");
     }
 
     protected boolean isFinished() {

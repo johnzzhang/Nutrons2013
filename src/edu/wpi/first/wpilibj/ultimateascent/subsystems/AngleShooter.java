@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.lib.Print;
 public class AngleShooter {
     
     public void changeAngle() {
-        Print.print("We changed the angle of the shooter. Seriously.");
+        Print.printMessage("We changed the angle of the shooter. Seriously.");
     }
     
     

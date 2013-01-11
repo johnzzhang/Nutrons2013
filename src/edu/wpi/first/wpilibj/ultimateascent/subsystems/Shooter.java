@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.lib.Print;
 public class Shooter extends Subsystem {
     
     public void shoot() {
-        Print.print("We just shot for real this time.");
+        Print.printMessage("We just shot for real this time.");
     }
     
     protected void initDefaultCommand() {

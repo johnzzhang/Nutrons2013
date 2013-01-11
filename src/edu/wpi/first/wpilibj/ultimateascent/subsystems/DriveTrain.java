@@ -42,7 +42,7 @@ public class DriveTrain extends Subsystem {
     
     // Sets lMotor and rMotor to lPower and rPower.
     public void driveLR(double lPower, double rPower) {
-        Print.print("We moving for real.");
+        Print.printMessage("We moving for real.");
         lMotor.set(LEFT_SCALE * lPower);
         rMotor.set(RIGHT_SCALE * rPower);
     }

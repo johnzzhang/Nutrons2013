@@ -20,7 +20,7 @@ public class Shifter extends Subsystem {
 
     // Set gear to high or low.
     public void shift(boolean highGear) {
-        Print.print("Dude, we just shifted. Like for real. Seriously.");
+        Print.printMessage("Dude, we just shifted. Like for real. Seriously.");
         CommandBase.dt.setTSens(highGear);
         shifter.set(highGear);
     }

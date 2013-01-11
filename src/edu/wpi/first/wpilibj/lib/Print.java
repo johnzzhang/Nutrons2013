@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Print {
     
-    public static void print(String message) {
+    public static void printMessage(String message) {
         System.out.println(message);
         SmartDashboard.putString("CURRENT ACTION: ", message);
     }

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.lib.Print;
 public class Intake extends Subsystem {
     
     public void intake() {
-        Print.print("We seriously intook a frisbee."); 
+        Print.printMessage("We seriously intook a frisbee."); 
     }
     
     protected void initDefaultCommand() {
