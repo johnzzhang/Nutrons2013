@@ -1,6 +1,7 @@
 package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.lib.Print;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
@@ -21,8 +22,8 @@ public class DriveTrain extends Subsystem {
     private final double LOW_GEAR_T_SENS = 1.3;
    
     // Robot parts.
-    private final Victor lMotor = new Victor(RobotMap.DRIVE_LEFT_MOTOR);
-    private final Victor rMotor = new Victor(RobotMap.DRIVE_RIGHT_MOTOR);
+    private final Talon lMotor = new Talon(RobotMap.DRIVE_LEFT_MOTOR);
+    private final Talon rMotor = new Talon(RobotMap.DRIVE_RIGHT_MOTOR);
     
     public DriveTrain() {
     }
