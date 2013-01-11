@@ -5,6 +5,7 @@
 package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -21,7 +22,7 @@ public class Shooter extends PIDSubsystem {
     // here. Call these from Commands.
 
     // Motors
-    private Victor shooterMotor = new Victor(RobotMap.SHOOTER_WHEEL);
+    private Talon shooterMotor = new Talon(RobotMap.SHOOTER_WHEEL);
     private Encoder shooterEncoder = new Encoder(RobotMap.SHOOTER_ENCODER_1, RobotMap.SHOOTER_ENCODER_2);
     
     
