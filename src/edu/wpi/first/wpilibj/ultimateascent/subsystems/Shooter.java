@@ -4,10 +4,9 @@
  */
 package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
+// vvvtl7: removed unused Victor and command.Subsystem imports
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
@@ -27,13 +26,14 @@ public class Shooter extends PIDSubsystem {
     
     
     // Constants
+    // TODO: Tune these constants once physical part is completed
     private static final int kp = 0;
     private static final int ki = 0;
     private static final int kd = 0;
     
     // Variables
+    // vvvtl7: Removed 'camel' boolean
     private boolean enabled = false;
-    private boolean camel = CommandBase.isOperatorCamel();
     
     public Shooter() {
         super(kp, ki, kd);

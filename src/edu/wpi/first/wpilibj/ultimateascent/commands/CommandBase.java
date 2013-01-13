@@ -39,8 +39,10 @@ public abstract class CommandBase extends Command {
         super();
     }
     
+    // vvvtl7: Changed isOperatorCamel from AND to OR
+    // It now shows true if everything is working, false if anything is not
     public static boolean isOperatorCamel() {
-        if(oi == null && shooter == null) {
+        if(oi == null || shooter == null) {
             return false;
         }else{
             return true;
