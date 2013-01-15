@@ -3,7 +3,10 @@ package edu.wpi.first.wpilibj.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ultimateascent.OI;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.UltrasonicSensor;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -17,6 +20,9 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     
     public static Shooter shooter;
+    public static UltrasonicSensor ultrason;
+    public static Intake intake;
+    public static Loader loader;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -26,6 +32,9 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         oi = new OI();
         shooter = new Shooter();
+        intake = new Intake();
+        ultrason = new UltrasonicSensor();
+        loader = new Loader();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(shooter);
@@ -39,10 +48,8 @@ public abstract class CommandBase extends Command {
         super();
     }
     
-    // vvvtl7: Changed isOperatorCamel from AND to OR
-    // It now shows true if everything is working, false if anything is not
     public static boolean isOperatorCamel() {
-        if(oi == null || shooter == null) {
+        if(oi == null && shooter == null) {
             return false;
         }else{
             return true;
