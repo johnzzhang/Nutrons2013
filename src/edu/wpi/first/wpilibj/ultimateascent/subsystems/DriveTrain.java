@@ -2,6 +2,7 @@ package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.lib.Print;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
@@ -20,10 +21,13 @@ public class DriveTrain extends Subsystem {
     private final double RIGHT_SCALE = 1.0;
     private final double HIGH_GEAR_T_SENS = 1.5;
     private final double LOW_GEAR_T_SENS = 1.3;
+    private final int ECHO = 0;
+    private final int PING = 0;
    
     // Robot parts.
     private final Talon lMotor = new Talon(RobotMap.DRIVE_LEFT_MOTOR);
     private final Talon rMotor = new Talon(RobotMap.DRIVE_RIGHT_MOTOR);
+    private final Ultrasonic sensor = new Ultrasonic(PING, ECHO);
     
     public DriveTrain() {
     }
@@ -87,11 +91,13 @@ public class DriveTrain extends Subsystem {
         driveLR(lPower, rPower);
     }
             
-           
-    
     // Stops motor.
     public void stop() {
         driveLR(0, 0);
+    }
+    
+    public double getDistance() {
+        return sensor.getRangeInches();
     }
     
 }
