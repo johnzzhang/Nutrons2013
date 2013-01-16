@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.UltrasonicSensor;
+import java.util.Random;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -49,10 +50,6 @@ public abstract class CommandBase extends Command {
     }
     
     public static boolean isOperatorCamel() {
-        if(oi == null && shooter == null) {
-            return false;
-        }else{
-            return true;
-        }
+        return new Random().nextInt(2) == 0;
     }
 }

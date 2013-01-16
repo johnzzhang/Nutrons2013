@@ -2,10 +2,11 @@ package edu.wpi.first.wpilibj.ultimateascent;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.lib.ToggleButton;
 import edu.wpi.first.wpilibj.ultimateascent.commands.intake.IntakeCmd;
-import edu.wpi.first.wpilibj.ultimateascent.commands.loader.LoaderCycleCmd;
+import edu.wpi.first.wpilibj.ultimateascent.commands.loader.LoaderBoltPositionCmd;
+import edu.wpi.first.wpilibj.ultimateascent.commands.loader.LoaderToggleLoaderPositionCmd;
 import edu.wpi.first.wpilibj.ultimateascent.commands.shooter.ShooterSetPowerCmd;
 
 /**
@@ -19,12 +20,15 @@ public class OI {
     private Button startShooter = new JoystickButton(opPad, 4);
     private Button stopShooter = new JoystickButton(opPad, 10);
     private Button runIntake = new JoystickButton(opPad, 3);
-    private Button runLoad = new JoystickButton(opPad, 5);
+    // private Button toggleLoader = new JoystickButton(opPad, 5);
+    private Button toggleLoader = new ToggleButton(new JoystickButton(opPad, 5));
+    private Button loaderBolt = new JoystickButton(opPad, 6);
     
     public OI() {
         startShooter.whenPressed(new ShooterSetPowerCmd(1));
         stopShooter.whenPressed(new ShooterSetPowerCmd(0));
         runIntake.whileHeld(new IntakeCmd());
-        runLoad.whenPressed(new LoaderCycleCmd());
+        toggleLoader.whenPressed(new LoaderToggleLoaderPositionCmd());
+        loaderBolt.whenPressed(new LoaderBoltPositionCmd());
     }
 }
