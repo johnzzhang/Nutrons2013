@@ -4,24 +4,19 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 
 /**
  *
- * @author root
+ * @author NUTRONSPROS
  */
-public class ShooterSetRateCmd extends CommandBase {
+public class ShooterToggleLevelCmd extends CommandBase {
 
-    private double shooterRate;
-    
-    public ShooterSetRateCmd(double newRate) {
+    public ShooterToggleLevelCmd() {
         requires(shooter);
-        shooterRate = newRate;
     }
     
     protected void initialize() {
     }
 
     protected void execute() {
-        shooter.enable();
-        shooter.setShooterEnabled(true);
-        shooter.setSetpoint(shooterRate);
+        shooter.setLevel(oi.getShooterLevel());
     }
 
     protected boolean isFinished() {

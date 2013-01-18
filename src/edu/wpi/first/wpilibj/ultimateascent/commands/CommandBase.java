@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.ultimateascent.OI;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
-import edu.wpi.first.wpilibj.ultimateascent.subsystems.UltrasonicSensor;
 import java.util.Random;
 
 /**
@@ -21,7 +20,6 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     
     public static Shooter shooter;
-    public static UltrasonicSensor ultrason;
     public static Intake intake;
     public static Loader loader;
 
@@ -34,7 +32,6 @@ public abstract class CommandBase extends Command {
         oi = new OI();
         shooter = new Shooter();
         intake = new Intake();
-        ultrason = new UltrasonicSensor();
         loader = new Loader();
 
         // Show what command your subsystem is running on the SmartDashboard

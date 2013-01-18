@@ -6,6 +6,7 @@ package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 // vvvtl7: removed unused Victor and command.Subsystem imports
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
@@ -14,16 +15,16 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.shooter.ShooterMaintainPowe
 
 /**
  *
- * @author root
+ * @author NUTRONSPROS
  */
 public class Shooter extends PIDSubsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-    // Motors
+    // Actual robot parts.
     private Talon shooterMotor = new Talon(RobotMap.SHOOTER_WHEEL);
     private Encoder shooterEncoder = new Encoder(RobotMap.SHOOTER_ENCODER_1, RobotMap.SHOOTER_ENCODER_2);
-    
+    private Solenoid shooterLevel = new Solenoid(RobotMap.SHOOTER_LEVEL);
     
     // Constants
     // TODO: Tune these constants once physical part is completed
@@ -71,4 +72,9 @@ public class Shooter extends PIDSubsystem {
     protected void usePIDOutput(double d) {
         setShooterPower(getShooterPower() + d);
     }
+    
+    public void setLevel(boolean level) {
+        shooterLevel.set(level);
+    }
+    
 }
