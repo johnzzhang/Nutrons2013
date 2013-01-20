@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.lib.ToggleButton;
 import edu.wpi.first.wpilibj.ultimateascent.commands.intake.IntakeCmd;
 import edu.wpi.first.wpilibj.ultimateascent.commands.loader.LoaderBoltPositionCmd;
 import edu.wpi.first.wpilibj.ultimateascent.commands.loader.LoaderToggleLoaderPositionCmd;
+import edu.wpi.first.wpilibj.ultimateascent.commands.shooter.ShooterPIDCmd;
 import edu.wpi.first.wpilibj.ultimateascent.commands.shooter.ShooterSetPowerCmd;
 
 /**
@@ -19,6 +20,7 @@ public class OI {
     private Joystick opPad = new Joystick(RobotMap.OPERATOR_PAD);
     private Button startShooter = new JoystickButton(opPad, 4);
     private Button stopShooter = new JoystickButton(opPad, 10);
+    private Button runShooterPID = new JoystickButton(opPad, 0);
     private Button runIntake = new JoystickButton(opPad, 3);
     // private Button toggleLoader = new JoystickButton(opPad, 5);
     private Button toggleLoader = new ToggleButton(new JoystickButton(opPad, 5));
@@ -27,6 +29,7 @@ public class OI {
     public OI() {
         startShooter.whenPressed(new ShooterSetPowerCmd(1));
         stopShooter.whenPressed(new ShooterSetPowerCmd(0));
+        runShooterPID.whenPressed(new ShooterPIDCmd());
         runIntake.whileHeld(new IntakeCmd());
         toggleLoader.whenPressed(new LoaderToggleLoaderPositionCmd());
         loaderBolt.whenPressed(new LoaderBoltPositionCmd());

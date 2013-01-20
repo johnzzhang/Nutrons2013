@@ -64,11 +64,12 @@ public class Shooter extends PIDSubsystem {
         return enabled;
     }
     
-    protected double returnPIDInput() {
+    //vvvtl7: Made PID methods public
+    public double returnPIDInput() {
         return this.getShooterRate();
     }
 
-    protected void usePIDOutput(double d) {
+    public void usePIDOutput(double d) {
         setShooterPower(getShooterPower() + d);
     }
 }
