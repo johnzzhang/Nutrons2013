@@ -8,39 +8,28 @@ package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 import edu.wpi.first.wpilibj.ultimateascent.commands.shooter.ShooterMaintainPowerCmd;
 
 /**
  *
- * @author root
+ * @author NUTRONSPROS
  */
-public class Shooter extends PIDSubsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+public class BangBangShooter extends Subsystem {
 
     // Motors
     private Talon shooterMotor = new Talon(RobotMap.SHOOTER_WHEEL);
     private Encoder shooterEncoder = new Encoder(RobotMap.SHOOTER_ENCODER_1, RobotMap.SHOOTER_ENCODER_2);
     
-    
-    // Constants
-    // TODO: Tune these constants once physical part is completed
-    private static final int kp = 0;
-    private static final int ki = 0;
-    private static final int kd = 0;
-    
     // Variables
-    // vvvtl7: Removed 'camel' boolean
     private boolean enabled = false;
     
-    public Shooter() {
-        super(kp, ki, kd);
+    public BangBangShooter() {
     }
     
     public void initDefaultCommand() {
-        disable();
         setDefaultCommand(new ShooterMaintainPowerCmd());
     }
     
@@ -62,14 +51,5 @@ public class Shooter extends PIDSubsystem {
     
     public boolean isShooterEnabled() {
         return enabled;
-    }
-    
-    //vvvtl7: Made PID methods public
-    public double returnPIDInput() {
-        return this.getShooterRate();
-    }
-
-    public void usePIDOutput(double d) {
-        setShooterPower(getShooterPower() + d);
     }
 }

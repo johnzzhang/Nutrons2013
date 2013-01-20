@@ -30,7 +30,7 @@ public class Dashboards {
     // vvvtl7: TODO: Take out non-existent & un-needed data
     // TODO: Add non-existent & necessary data to correct classes
     public void sendContinuousData() {
-            // Shooter.
+            // PIDShooter.
             lowDash.addDouble(CommandBase.shooter.getSetpoint());
             lowDash.addDouble(CommandBase.shooter.getShooterRate());
             lowDash.addDouble(CommandBase.shooter.getShooterPower());

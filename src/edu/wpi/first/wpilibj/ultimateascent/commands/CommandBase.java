@@ -3,9 +3,10 @@ package edu.wpi.first.wpilibj.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ultimateascent.OI;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.BangBangShooter;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
-import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.PIDShooter;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.UltrasonicSensor;
 import java.util.Random;
 
@@ -20,7 +21,8 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
     
-    public static Shooter shooter;
+    public static BangBangShooter bangbang;
+    public static PIDShooter shooter;
     public static UltrasonicSensor ultrason;
     public static Intake intake;
     public static Loader loader;
@@ -32,7 +34,8 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-        shooter = new Shooter();
+        bangbang = new BangBangShooter();
+        shooter = new PIDShooter();
         intake = new Intake();
         ultrason = new UltrasonicSensor();
         loader = new Loader();
