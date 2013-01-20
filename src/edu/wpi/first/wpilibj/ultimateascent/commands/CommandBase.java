@@ -3,6 +3,7 @@ package edu.wpi.first.wpilibj.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ultimateascent.OI;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.Climber;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
@@ -23,6 +24,7 @@ public abstract class CommandBase extends Command {
     public static UltrasonicSensor ultrason;
     public static Intake intake;
     public static Loader loader;
+    public static Climber climber;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -35,6 +37,7 @@ public abstract class CommandBase extends Command {
         intake = new Intake();
         ultrason = new UltrasonicSensor();
         loader = new Loader();
+        climber = new Climber();
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(shooter);

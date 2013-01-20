@@ -27,6 +27,9 @@ public class RobotMap {
     public static final int ULTRASONIC_ECHO = 0;
     public static final int INTAKE_MOTOR = 0;
     public static final int LOAD_MECHANISM = 0;
+    public static final int STAGE_1 = 0;
+    public static final int STAGE_2 = 0;
+    public static final int STAGE_3 = 0;
     
     // Sensors
     public static final int SHOOTER_ENCODER_1 = 1;
