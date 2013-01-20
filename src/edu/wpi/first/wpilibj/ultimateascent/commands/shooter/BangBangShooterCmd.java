@@ -15,7 +15,7 @@ public class BangBangShooterCmd extends CommandBase {
     private final double SHOOTER_RATE = 0;
     
     protected double error() {
-        return SHOOTER_RATE - bangbang.getShooterRate();
+        return SHOOTER_RATE - bangbang.getRawRate();
     }
     protected boolean SmallError(double e) {
         return Math.abs(e) < 20;
@@ -30,6 +30,7 @@ public class BangBangShooterCmd extends CommandBase {
     }
 
     protected void execute() {
+        bangbang.updateCount();
         if(error() < 0) {
             bangbang.setShooterPower(0);
         }else{

@@ -25,6 +25,8 @@ public class BangBangShooter extends Subsystem {
     
     // Variables
     private boolean enabled = false;
+    private double count1 = 0;
+    private double count2 = 0;
     
     public BangBangShooter() {
     }
@@ -43,6 +45,14 @@ public class BangBangShooter extends Subsystem {
 
     public double getShooterRate() {
         return shooterEncoder.getRate();
+    }
+    public void updateCount() {
+        count1 = count2;
+        count2 = shooterEncoder.get();
+    }
+    
+    public double getRawRate() {
+        return (count2 - count1) / 0.01 / 60;
     }
     
     public void setShooterEnabled(boolean newEnabled) {
