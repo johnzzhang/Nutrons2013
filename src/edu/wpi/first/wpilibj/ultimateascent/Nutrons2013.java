@@ -32,8 +32,10 @@ public class Nutrons2013 extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
+        
         autonomousCommand = new AutoModeFIRSTry();
-
+        
+        // autonomousCommand = new ExampleCommand();
         // Initialize all subsystems
         CommandBase.init();
     }

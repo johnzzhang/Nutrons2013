@@ -1,19 +1,22 @@
-package edu.wpi.first.wpilibj.ultimateascent.commands.intake;
+package edu.wpi.first.wpilibj.ultimateascent.commands.loader;
 
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 
 /**
  *
- * @author John
+ * @author root
  */
-public class IntakeFrisbee extends CommandBase {
+public class LoaderBoltPositionCmd extends CommandBase {
+    
+    public LoaderBoltPositionCmd() {
+        requires(loader);
+    }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        // We just intook that bitch.
-        intake.intake();
+        loader.setBoltPosition(true);
     }
 
     protected boolean isFinished() {
@@ -21,9 +24,11 @@ public class IntakeFrisbee extends CommandBase {
     }
 
     protected void end() {
+        loader.setBoltPosition(false);
     }
 
     protected void interrupted() {
+        end();
     }
 
 }

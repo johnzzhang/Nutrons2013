@@ -4,15 +4,19 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
 
 /**
  *
- * @author NUTRONS_1
+ * @author NUTRONSPROS
  */
-public class ShootFrisbee extends CommandBase {
+public class ShooterToggleLevelCmd extends CommandBase {
 
+    public ShooterToggleLevelCmd() {
+        requires(shooter);
+    }
+    
     protected void initialize() {
     }
 
     protected void execute() {
-        shooter.shoot();
+        shooter.setLevel(oi.getShooterLevel());
     }
 
     protected boolean isFinished() {
