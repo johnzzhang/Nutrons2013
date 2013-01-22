@@ -1,6 +1,7 @@
 package edu.wpi.first.wpilibj.ultimateascent.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
 
@@ -8,7 +9,7 @@ import edu.wpi.first.wpilibj.ultimateascent.RobotMap;
  *
  * @author John
  */
-public class DriveTrain extends Subsystem {
+public class DriveTrain extends PIDSubsystem {
     
     // Variables
     private double tSens = 1;
@@ -24,6 +25,7 @@ public class DriveTrain extends Subsystem {
     private final Victor rMotor = new Victor(RobotMap.DRIVE_RIGHT_MOTOR);
     
     public DriveTrain() {
+        super(0, 0, 0);
     }
     
     protected void initDefaultCommand() {
@@ -83,12 +85,17 @@ public class DriveTrain extends Subsystem {
         }
         driveLR(lPower, rPower);
     }
-            
-           
     
     // Stops motor.
     public void stop() {
         driveLR(0, 0);
+    }
+
+    protected double returnPIDInput() {
+        return 0;
+    }
+
+    protected void usePIDOutput(double d) {
     }
     
 }
