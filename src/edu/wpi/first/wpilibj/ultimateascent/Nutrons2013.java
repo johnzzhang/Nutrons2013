@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
+import edu.wpi.first.wpilibj.ultimateascent.commands.auto.AutoModeFIRSTry;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,7 +32,7 @@ public class Nutrons2013 extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        // autonomousCommand = new ExampleCommand();
+        autonomousCommand = new AutoModeFIRSTry();
 
         // Initialize all subsystems
         CommandBase.init();
