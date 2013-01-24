@@ -19,7 +19,7 @@ import java.util.Random;
 <<<<<<< HEAD
  * @author John
 =======
- * @author Author
+ * @author Author 
 >>>>>>> ShooterWheel
  */
 public abstract class CommandBase extends Command {
