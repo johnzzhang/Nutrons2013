@@ -13,4 +13,7 @@ public class Print {
         SmartDashboard.putString("CURRENT ACTION: ", message);
     }
     
+    public static final boolean isBaconTasty(boolean isDedicatedAbrahamicFaithFollower, boolean isKyleArguingOtherwise) {
+        return !isDedicatedAbrahamicFaithFollower && !isKyleArguingOtherwise;
+    }
 }

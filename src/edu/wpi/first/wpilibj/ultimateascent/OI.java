@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.lib.LightSwitch;
 import edu.wpi.first.wpilibj.lib.ReverseButton;
 import edu.wpi.first.wpilibj.lib.ToggleButton;
 import edu.wpi.first.wpilibj.lib.Utils;
@@ -68,21 +69,23 @@ public class OI {
     
     // Operator
     private Joystick opPad = new Joystick(RobotMap.OPERATOR_PAD);
-    private Button startShooter = new JoystickButton(opPad, 4);
+    // private Button startShooter = new JoystickButton(opPad, 4);
     private Button stopShooter = new JoystickButton(opPad, 10);
     private Button runIntake = new JoystickButton(opPad, 3);
     // private Button toggleLoader = new JoystickButton(opPad, 5);
     private Button toggleLoader = new ToggleButton(new JoystickButton(opPad, 5));
     private Button toggleLevel = new ToggleButton(new JoystickButton(opPad, 0));
     private Button loaderBolt = new JoystickButton(opPad, 6);
+    private Button toggleShooter = new LightSwitch(new DigitalIOButton(0));
     
     public OI() {
-        startShooter.whenPressed(new ShooterSetPowerCmd(1));
+        // startShooter.whenPressed(new ShooterSetPowerCmd(1));
         stopShooter.whenPressed(new ShooterSetPowerCmd(0));
         runIntake.whileHeld(new IntakeCmd());
         toggleLoader.whenPressed(new LoaderToggleLoaderPositionCmd());
         loaderBolt.whenPressed(new LoaderBoltPositionCmd());
         shift.whileHeld(new ShifterStaticCmd(!Shifter.DEFAULT));
+        toggleShooter.whileHeld(new ShooterSetPowerCmd(1));
     }
     
     public boolean getShooterLevel() {
@@ -144,6 +147,10 @@ public class OI {
     
     public boolean getDriveQuickTurn() throws EnhancedIOException {
         return getIODigital(3);
+    }
+    
+    private static final boolean isDriverWalrus() {
+        return true;
     }
     
 }

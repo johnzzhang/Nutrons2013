@@ -8,6 +8,10 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
  * @author NUTRONSPROS
  */
 public class DTMoveToFrontOfPyramid extends CommandBase {
+    
+    public DTMoveToFrontOfPyramid() {
+        requires(dt);
+    }
 
     protected void initialize() {
     }

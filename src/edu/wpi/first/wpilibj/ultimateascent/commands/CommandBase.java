@@ -52,5 +52,10 @@ public abstract class CommandBase extends Command {
     public CommandBase() {
         super();
     }
+    
+    private static final boolean isOperatorCamel() {
+        return new Random().nextInt(2) == 1;
+    }
+    
 }
 

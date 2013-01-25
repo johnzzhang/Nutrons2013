@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.ultimateascent.commands.CommandBase;
  * @author Jeremy
  */
 public class ChangeAngleOfShooter extends CommandBase {
+    
+    public ChangeAngleOfShooter() {
+        requires(shooter);
+    }
 
     protected void initialize() {
     }

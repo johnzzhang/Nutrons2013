@@ -11,8 +11,8 @@ public class ShifterStaticCmd extends CommandBase {
     boolean highGear = false;
     
     public ShifterStaticCmd(boolean highGear) {
-        this.highGear = highGear;
         requires(shifter);
+        this.highGear = highGear;
     }
     
     protected void initialize() {

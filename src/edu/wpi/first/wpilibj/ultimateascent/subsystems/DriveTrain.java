@@ -16,6 +16,9 @@ public class DriveTrain extends PIDSubsystem {
     private double tSens = 1;
     
     // Constants.
+    private static final double kp = 0;
+    private static final double ki = 0;
+    private static final double kd = 0;
     private final double LEFT_SCALE = 1.0;
     private final double RIGHT_SCALE = 1.0;
     private final double HIGH_GEAR_T_SENS = 1.5;
@@ -29,7 +32,7 @@ public class DriveTrain extends PIDSubsystem {
     private final Ultrasonic sensor = new Ultrasonic(PING, ECHO);
     
     public DriveTrain() {
-        super(0, 0, 0);
+        super(kp, ki, kd);
     }
     
     protected void initDefaultCommand() {
@@ -97,14 +100,19 @@ public class DriveTrain extends PIDSubsystem {
     }
 
     protected double returnPIDInput() {
-        return 0;
+        return getDistanceInch();
     }
 
     protected void usePIDOutput(double d) {
+        driveLR(d, d);
     }
     
-    public double getDistance() {
+    public double getDistanceInch() {
         return sensor.getRangeInches();
+    }
+    
+    public double getDistanceMM() {
+        return sensor.getRangeMM();
     }
     
 }
