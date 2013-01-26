@@ -38,5 +38,6 @@ public class RobotMap {
     // Sensors
     public static final int SHOOTER_ENCODER_1 = 0;
     public static final int SHOOTER_ENCODER_2 = 0;
+    public static final int POTENTIOMETER = 0;
     
 }
