@@ -13,12 +13,12 @@ public class Elevator extends PIDSubsystem {
     private AnalogChannel pot = new AnalogChannel(RobotMap.POTENTIOMETER);
 
     // PID values
-    private static final double P = 0;
-    private static final double I = 0;
-    private static final double D = 0;
+    private static final double kp = 0;
+    private static final double ki = 0;
+    private static final double kd = 0;
     
     public Elevator() {
-        super(P, I, D);
+        super(kp, ki, kd);
     }
     
     protected void initDefaultCommand() {
