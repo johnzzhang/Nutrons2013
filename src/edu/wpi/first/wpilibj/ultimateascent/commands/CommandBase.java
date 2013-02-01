@@ -10,16 +10,13 @@ import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Loader;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shooter;
+import edu.wpi.first.wpilibj.ultimateascent.subsystems.TakeBackHalfShooter;
 import java.util.Random;
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
-<<<<<<< HEAD
  * @author John
-=======
- * @author Author
->>>>>>> ShooterWheel
  */
 public abstract class CommandBase extends Command {
 
@@ -30,6 +27,7 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter = new Shooter();
     public static Intake intake = new Intake();
     public static Loader loader = new Loader();
+    public static TakeBackHalfShooter tbhShooter = new TakeBackHalfShooter();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
