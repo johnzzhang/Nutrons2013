@@ -3,7 +3,6 @@ package edu.wpi.first.wpilibj.ultimateascent.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.ultimateascent.OI;
-import edu.wpi.first.wpilibj.ultimateascent.subsystems.AngleShooter;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Intake;
 import edu.wpi.first.wpilibj.ultimateascent.subsystems.Shifter;
@@ -28,7 +27,6 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static DriveTrain dt = new DriveTrain();
     public static Shifter shifter = new Shifter();
-    public static AngleShooter angleShooter = new AngleShooter();
     public static Shooter shooter = new Shooter();
     public static Intake intake = new Intake();
     public static Loader loader = new Loader();
